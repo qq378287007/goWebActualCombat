@@ -1,11 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
 package main
 
 import (
@@ -42,11 +34,9 @@ func main() {
 	ch2 := make(chan int, 10)
 
 	wg.Add(3)
-
 	go func1(ch1)
 	go func2(ch1, ch2)
 	go func2(ch1, ch2)
-
 	wg.Wait()
 
 	for ret := range ch2 {

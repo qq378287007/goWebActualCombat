@@ -1,21 +1,14 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
 package main
 
 import (
 	"database/sql"
 	"encoding/csv"
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"os"
 	"strconv"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var db *sql.DB
@@ -28,19 +21,17 @@ type User struct {
 	Password string
 }
 
-//定义一个全局变量
+// 定义一个全局变量
 var u User
 
-//初始化数据库连接
+// 初始化数据库连接
 func init() {
-	db, _ = sql.Open("mysql",
-		"root:a123456@tcp(127.0.0.1:3306)/chapter6?"+
-			"charset=utf8mb4&parseTime=True&loc=Local")
+	db, _ = sql.Open("mysql", "root:a123456@tcp(127.0.0.1:3306)/chapter6?"+"charset=utf8mb4&parseTime=True&loc=Local")
 }
 
 func main() {
 	//定义导出的文件名
-	filename := "./exportUsers.csv"
+	filename := "exportCsv.csv"
 
 	//从数据库中获取数据
 	users := queryMultiRow()
@@ -54,11 +45,14 @@ func main() {
 		str = append(str, u.Name)
 		column = append(column, str)
 	}
+
+	defer os.Remove(filename)
+
 	//导出
 	ExportCsv(filename, column)
 }
 
-//导出csv文件
+// 导出csv文件
 func ExportCsv(filePath string, data [][]string) {
 	fp, err := os.Create(filePath) //创建文件句柄
 	if err != nil {
@@ -73,7 +67,7 @@ func ExportCsv(filePath string, data [][]string) {
 }
 
 // 查询多条数据
-func queryMultiRow() ([]User) {
+func queryMultiRow() []User {
 	rows, err := db.Query("select uid,name,phone,email from `user` where uid > ?", 0)
 	if err != nil {
 		fmt.Printf("query failed, err:%v\n", err)

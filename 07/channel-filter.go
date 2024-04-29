@@ -1,11 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
 package main
 
 import "fmt"
@@ -16,7 +8,7 @@ func IntegerGenerator() chan int {
 
 	go func() { // 开出一个goroutine
 		for i := 2; ; i++ {
-			ch <- i  // 直到通道索要数据，才把i添加进通道
+			ch <- i // 直到通道索要数据，才把i添加进通道
 		}
 	}()
 

@@ -1,12 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
@@ -28,20 +19,21 @@ func main() {
 	if srcPath == dstPath {
 		fmt.Println("源文件和目标文件不能重名")
 	}
-	//执行复制
+
 	srcFile, err1 := os.Open(srcPath)
-	// 关闭文件
-	defer srcFile.Close()
 	if err1 != nil {
 		fmt.Println(err1)
 		return
 	}
+	defer srcFile.Close()
+
 	dstFile, err2 := os.Create(dstPath)
-	defer dstFile.Close()
 	if err2 != nil {
 		fmt.Println(err2)
 		return
 	}
+	defer dstFile.Close()
+
 	readBuf := make([]byte, 1024)
 	for {
 		//读取文件

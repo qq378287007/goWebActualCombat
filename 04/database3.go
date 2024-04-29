@@ -1,17 +1,9 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
 	"database/sql"
 	"fmt"
+
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -23,16 +15,15 @@ type User struct {
 	Phone string
 }
 
-//定义一个全局变量
+// 定义一个全局变量
 var u User
 
-//初始化数据库连接
-func init()  {
+// 初始化数据库连接
+func init() {
 	//db, _ = sql.Open("mysql",
 	//	"root:123456@tcp(127.0.0.1:3306)/chapter4")
 
-	db, _ = sql.Open("mysql",
-		"root:123456@tcp(127.0.0.1:3306)/chapter2")
+	db, _ = sql.Open("mysql", "root:123456@tcp(127.0.0.1:3306)/chapter2")
 
 	rows, err := db.Query("select `id` from `content` where id > ?", 0)
 	if err != nil {
@@ -41,7 +32,7 @@ func init()  {
 	println(rows)
 }
 
-//单行测试
+// 单行测试
 func queryRow() {
 	// 非常重要：确保QueryRow之后调用Scan方法，否则持有的数据库链接不会被释放
 	err := db.QueryRow("select uid,name,phone from `user` where uid=?", 1).Scan(&u.Uid, &u.Name, &u.Phone)

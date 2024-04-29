@@ -1,12 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
@@ -16,9 +7,9 @@ import (
 )
 
 type Languages struct {
-	XMLName xml.Name `xml:"languages"`
-	Version string `xml:"version,attr`
-	Lang []Language `xml:"language"`
+	XMLName xml.Name   `xml:"languages"`
+	Version string     `xml:"version,attr"`
+	Lang    []Language `xml:"language"`
 }
 
 type Language struct {
@@ -35,7 +26,8 @@ func main() {
 		fmt.Printf("error %v", err)
 		return
 	}
-	file, _ := os.Create("languages.xml")
+
+	file, _ := os.Create("xml_write.xml")
 	defer file.Close()
 	file.Write([]byte(xml.Header))
 	file.Write(output)

@@ -1,12 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
@@ -16,16 +7,16 @@ import (
 	"net/http"
 	"regexp"
 )
-func index(w http.ResponseWriter, r *http.Request) {
 
+func index(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		t, _ := template.ParseFiles("index.html")
 		t.Execute(w, nil)
 	}
 	fmt.Fprintf(w, "This words are written by Go") //这个写入到w的是输出到客户端的
 }
-func login(w http.ResponseWriter, r *http.Request) {
 
+func login(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		t, _ := template.ParseFiles("login.html")
 		t.Execute(w, nil)
@@ -50,9 +41,10 @@ func login(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("password:", r.Form["password"])
 	}
 }
+
 func main() {
-	http.HandleFunc("/", index) //设置首页的路由
-	http.HandleFunc("/login", login) //设置登陆页的路由
+	http.HandleFunc("/", index)              //设置首页的路由
+	http.HandleFunc("/login", login)         //设置登陆页的路由
 	err := http.ListenAndServe(":8088", nil) //设置监听的端口
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)

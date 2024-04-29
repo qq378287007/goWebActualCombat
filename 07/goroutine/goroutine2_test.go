@@ -5,7 +5,7 @@ import "testing"
 // 功能测试
 func TestSubstr(t *testing.T) {
 	tests := []struct {
-		s   string;
+		s   string
 		ans int
 	}{
 		{"abcabcbb", 3},

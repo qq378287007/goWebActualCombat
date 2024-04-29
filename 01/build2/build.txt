@@ -1,0 +1,4 @@
+go mod init build2 & go mod tidy
+
+go build ./pkg & pkg.exe
+

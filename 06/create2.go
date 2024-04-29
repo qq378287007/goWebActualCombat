@@ -1,11 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
 package main
 
 import (
@@ -14,11 +6,13 @@ import (
 )
 
 func main() {
+	defer os.Remove("create2.txt")
+
 	// 创建文件
 	//文件的创建，Create会根据传入的文件名创建文件，默认权限是0666
-	fp, err := os.Create("./demo.txt") // 如果文件已存在，会将文件清空。
-	fmt.Println(fp, err)               // &{0xc000054180} <nil>
-	fmt.Printf("%T", fp)               // *os.File 文件指针类型
+	fp, err := os.Create("create2.txt") // 如果文件已存在，会将文件清空。
+	fmt.Println(fp, err)                // &{0xc000054180} <nil>
+	fmt.Printf("%T", fp)                // *os.File 文件指针类型
 
 	if err != nil {
 		fmt.Println("文件创建失败。")

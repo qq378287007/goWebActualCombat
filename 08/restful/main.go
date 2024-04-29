@@ -1,29 +1,21 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
 package main
 
 import (
 	"crypto/md5"
 	"encoding/hex"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	"net/http"
 )
 
 var (
-	db *gorm.DB
-	sqlConnection = "root:a123456@tcp(127.0.0.1:3306)/chapter8?" +
-		"charset=utf8&parseTime=true"
+	db            *gorm.DB
+	sqlConnection = "root:a123456@tcp(127.0.0.1:3306)/chapter8?" + "charset=utf8&parseTime=true"
 )
 
-//初始化
+// 初始化
 func init() {
 	//打开数据库连接
 	var err error
@@ -65,7 +57,7 @@ type (
 	}
 )
 
-//md5加密
+// md5加密
 func md5Password(str string) string {
 	h := md5.New()
 	h.Write([]byte(str))
@@ -88,16 +80,13 @@ func createUser(c *gin.Context) {
 			"status":  http.StatusCreated,
 			"message": "User created successfully!",
 			"ID":      user.ID,
-		})         //返回状态到客户端
+		}) //返回状态到客户端
 }
 
 // 获取所有用户
 func fetchAllUser(c *gin.Context) {
-	var user []User        //定义一个数组去数据库总获取数据
-	var _userRes []UserRes //定义一个响应数组用户返回数据到客户端
-
+	var user []User //定义一个数组去数据库总获取数据
 	db.Find(&user)
-
 	if len(user) <= 0 {
 		c.JSON(
 			http.StatusNotFound,
@@ -108,6 +97,7 @@ func fetchAllUser(c *gin.Context) {
 		return
 	}
 
+	var _userRes []UserRes //定义一个响应数组用户返回数据到客户端
 	//循环遍历，追加到响应数组
 	for _, item := range user {
 		_userRes = append(_userRes,
@@ -118,8 +108,7 @@ func fetchAllUser(c *gin.Context) {
 			})
 	}
 	c.JSON(http.StatusOK,
-		gin.H{"status":
-		http.StatusOK,
+		gin.H{"status": http.StatusOK,
 			"data": _userRes,
 		}) //返回状态到客户端
 }
@@ -142,7 +131,7 @@ func fetchUser(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "data": res})
 }
 
-//更新用户
+// 更新用户
 func updateUser(c *gin.Context) {
 	var user User           //定义User结构体
 	userID := c.Param("id") //获取参数id

@@ -1,11 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
 package main
 
 import "fmt"
@@ -14,7 +6,8 @@ func SendNotification(user string) chan string {
 
 	//......此处省略查询数据库获取新消息。
 	//声明一个通道来保存消息
-	notifications := make(chan string, 500)
+	//notifications := make(chan string, 500)
+	notifications := make(chan string, 1)
 
 	// 开启一个通道
 	go func() {

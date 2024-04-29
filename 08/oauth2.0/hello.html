@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, INItial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hello</title>
 </head>
+
 <body>
 </body>
 <script>
@@ -29,12 +31,13 @@
             Authorization: 'token ' + token
         }
     })
-    // 解析请求的JSON
-     .then(res => res.json())
-     .then(res => {
-        // 返回用户信息
-        const nameNode = document.createTextNode(`Hi, ${res.name}, Welcome to login our site by GitHub!`)
-        document.body.appendChild(nameNode)
-     })
+        // 解析请求的JSON
+        .then(res => res.json())
+        .then(res => {
+            // 返回用户信息
+            const nameNode = document.createTextNode(`Hi, ${res.name}, Welcome to login our site by GitHub!`)
+            document.body.appendChild(nameNode)
+        })
 </script>
+
 </html>

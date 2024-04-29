@@ -1,12 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
@@ -15,11 +6,14 @@ import (
 )
 
 func main() {
-	file, err := os.Create("writeAt.txt")
+	defer os.Remove("write2.txt")
+
+	file, err := os.Create("write2.txt")
 	if err != nil {
 		panic(err)
 	}
 	defer file.Close()
+
 	file.WriteString("Go Web编程实战派从入门到精通")
 	n, err := file.WriteAt([]byte("Go语言Web"), 24)
 	if err != nil {

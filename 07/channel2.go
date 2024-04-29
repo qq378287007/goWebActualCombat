@@ -1,12 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
@@ -14,13 +5,13 @@ import (
 )
 
 func Counting(ch chan int) {
-	ch <- 1
 	fmt.Println("Counting")
+	ch <- 1
 }
 
 func main() {
-	channels := make([] chan int, 6)
-	for i:=0; i<6; i++ {
+	channels := make([]chan int, 6)
+	for i := 0; i < 6; i++ {
 		channels[i] = make(chan int)
 		go Counting(channels[i])
 	}
@@ -28,7 +19,6 @@ func main() {
 	for _, ch := range channels {
 		<-ch
 	}
-
 
 	//select {
 	//case <- chan1:

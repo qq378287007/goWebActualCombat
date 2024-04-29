@@ -1,13 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
-
 package main
 
 import (
@@ -27,6 +17,6 @@ func cookie(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", cookie)  //使用http包默认的多路复用器实例绑定
-	http.ListenAndServe("127.0.0.1:8087", nil)  //使用http包默认的服务器实例，并开启监听
+	http.HandleFunc("/", cookie)               //使用http包默认的多路复用器实例绑定
+	http.ListenAndServe("127.0.0.1:8087", nil) //使用http包默认的服务器实例，并开启监听
 }

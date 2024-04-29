@@ -1,12 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package model
 
 type ExecTime struct {
@@ -14,22 +5,22 @@ type ExecTime struct {
 	EndTime   int64 `bson:"endTime"`   //结束时间
 }
 type LogRecord struct {
-	JobName string `bson:"jobName"` //任务名
-	Command string `bson:"command"` //shell命令
-	Err     string `bson:"err"`     //脚本错误
-	Content string `bson:"content"` //脚本输出
-	Tp      ExecTime                //执行时间
+	JobName string   `bson:"jobName"` //任务名
+	Command string   `bson:"command"` //shell命令
+	Err     string   `bson:"err"`     //脚本错误
+	Content string   `bson:"content"` //脚本输出
+	Tp      ExecTime //执行时间
 }
 
-//查询实体
+// 查询实体
 type FindByJobName struct {
 	JobName string `bson:"jobName"` //任务名
 }
 
-//更新实体
+// 更新实体
 type UpdateByJobName struct {
-	Command string     `bson:"command"` //shell命令
-	Content string     `bson:"content"` //脚本输出
+	Command string `bson:"command"` //shell命令
+	Content string `bson:"content"` //脚本输出
 }
 
 type ExecTimeFilter struct {
@@ -46,17 +37,17 @@ type LogRecordFilter struct {
 	Tp      interface{} `bson:"tp,omitempty"`                     //执行时间
 }
 
-//小于
+// 小于
 type Lt struct {
 	Lt int64 `bson:"$lt"`
 }
 
-//分组
+// 分组
 type Group struct {
 	Group interface{} `bson:"$group"`
 }
 
-//求和
+// 求和
 type Sum struct {
 	Sum interface{} `bson:"$sum"`
 }

@@ -1,12 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
@@ -14,7 +5,7 @@ import (
 	"regexp"
 )
 
-func main()  {
+func main() {
 	re := regexp.MustCompile(`who(o*)a(a|m)i`)
 	fmt.Printf("%q\n", re.FindStringSubmatch("-whooooaai-"))
 	fmt.Printf("%q\n", re.FindStringSubmatch("-whoami-"))
@@ -41,7 +32,6 @@ func main()  {
 	//re2 := regexp.MustCompile(`(.*)((w)eb)(.*)w`)
 	//fmt.Println(re2.NumSubexp())
 
-
 	//re := regexp.MustCompile(`w(a*)i`)
 	//fmt.Printf("%s\n", re.ReplaceAll([]byte("-wi-waaaaai-"), []byte("T")))
 	//// $1表示匹配的第一个子串，这是wi的中间无字符串，所以$1为空，然后使用空去替换满足正则表达式的部分。
@@ -50,8 +40,6 @@ func main()  {
 	//fmt.Printf("%s\n", re.ReplaceAll([]byte("-wi-waaaaai-"), []byte("$1W")))
 	//// ${1}匹配(x*)，保留
 	//fmt.Printf("%s\n", re.ReplaceAll([]byte("-wi-waaaaai-"), []byte("${1}W")))
-
-
 
 	//s := "Hello Gopher, let's go!"
 	////定义一个正则表达式reg，匹配Hello或者Go

@@ -1,20 +1,9 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
 	"crypto/rand"
 	"encoding/base64"
 	"fmt"
-	"github.com/astaxie/session"
-	_ "github.com/astaxie/session/providers/memory"
 	"html/template"
 	"io"
 	"log"
@@ -22,6 +11,9 @@ import (
 	"net/url"
 	"sync"
 	"time"
+
+	"github.com/astaxie/session"
+	_ "github.com/astaxie/session/providers/memory"
 )
 
 //var globalSession *SessionManager
@@ -32,7 +24,8 @@ import (
 //}
 
 var globalSession *session.Manager
-//然后在init函数中初始化
+
+// 然后在init函数中初始化
 func init() {
 	globalSession, _ = session.NewManager("memory", "gosessionid", 3600)
 	go globalSession.GC()
@@ -108,7 +101,7 @@ func (SessionManager *SessionManager) SessionBegin(w http.ResponseWriter, r *htt
 	return
 }
 
-//SessionDestroy 注销 Session
+// SessionDestroy 注销 Session
 func (SessionManager *SessionManager) SessionDestroy(w http.ResponseWriter, r *http.Request) {
 	cookie, err := r.Cookie(SessionManager.cookieName)
 	if err != nil || cookie.Value == "" {
