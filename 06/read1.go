@@ -17,7 +17,7 @@ func main() {
 	defer file.Close()
 
 	// bufio.NewReader(rd io.Reader) *Reader
-	reader := bufio.NewReader(file)
+	reader := bufio.NewReader(file)//带缓冲方式读取
 	// 循环读取文件的内容
 	for {
 		line, err := reader.ReadString('\n') // 读到一个换行符就结束

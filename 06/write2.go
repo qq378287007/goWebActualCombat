@@ -15,7 +15,7 @@ func main() {
 	defer file.Close()
 
 	file.WriteString("Go Web编程实战派从入门到精通")
-	n, err := file.WriteAt([]byte("Go语言Web"), 24)
+	n, err := file.WriteAt([]byte("Go语言Web"), 24)//指定位置处写入
 	if err != nil {
 		panic(err)
 	}

@@ -12,12 +12,14 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+
 	oldName := "dir_name1"
 	newName := "dir_name2"
 	//将dir_name1重命名为dir_name2
-	err = os.Rename(oldName, newName)
+	err = os.Rename(oldName, newName)//文件或目录重命名
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	os.Remove(newName)
 }
