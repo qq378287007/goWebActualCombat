@@ -1,12 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 //CREATE TABLE `beego_user` (
 // `id` bigint(20) NOT NULL AUTO_INCREMENT,
 // `name` varchar(20) DEFAULT '',
@@ -18,6 +9,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -31,7 +23,7 @@ func init() {
 }
 
 type BeegoUser struct {
-	Id   int //默认主健为id
+	Id    int //默认主健为id
 	Name  string
 	Phone string
 }

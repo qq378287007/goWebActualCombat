@@ -1,11 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
 package main
 
 import (
@@ -18,17 +10,16 @@ import (
 )
 
 func main() {
-
-	rectangle := "rectangle.png"
-
 	rectImage := image.NewRGBA(image.Rect(0, 0, 200, 200))
-	green := color.RGBA{0, 100, 0, 255}
-
+	green := color.RGBA{255, 100, 0, 255}
 	draw.Draw(rectImage, rectImage.Bounds(), &image.Uniform{green}, image.ZP, draw.Src)
 
+	rectangle := "rectangle.png"
 	file, err := os.Create(rectangle)
 	if err != nil {
 		log.Fatalf("failed create file: %s", err)
 	}
+	defer file.Close()
+
 	png.Encode(file, rectImage)
 }

@@ -11,6 +11,7 @@ func main() {
 		ch <- "signal"
 		fmt.Println("退出协程")
 	}()
+
 	fmt.Println("等待协程")
 	<-ch // 等待匿名协程
 	fmt.Println("完成")

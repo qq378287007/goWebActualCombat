@@ -1,11 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
 package main
 
 import (
@@ -14,7 +6,7 @@ import (
 	"time"
 )
 
-//这里可以是比较耗时的事情，比如计算
+// 这里可以是比较耗时的事情，比如计算
 func doCompute(x int) int {
 	time.Sleep(time.Duration(rand.Intn(10)) * time.Millisecond) //模拟计算
 	return 1 + x                                                // 假如1 + x是一个很费时的计算
@@ -29,7 +21,7 @@ func branch(x int) chan int {
 	return ch
 }
 
-func Recombination(chs ... chan int) chan int {
+func Recombination(chs ...chan int) chan int {
 	ch := make(chan int)
 
 	for _, c := range chs {
@@ -40,7 +32,7 @@ func Recombination(chs ... chan int) chan int {
 	return ch
 }
 
-func Recombination(branches ... chan int) chan int {
+func Recombination(branches ...chan int) chan int {
 	ch := make(chan int)
 
 	//select会尝试着依次取出各个通道的数据

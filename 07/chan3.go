@@ -10,6 +10,7 @@ func main() {
 	ch <- 6
 	ch <- 7
 	ch <- 8
+
 	// 获取这三个数据
 	fmt.Println(<-ch)
 	fmt.Println(<-ch)

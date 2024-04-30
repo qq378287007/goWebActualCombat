@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"log"
 
-	"gitee.com/shirdonl/goWebActualCombat/chapter4/model"
-	"gitee.com/shirdonl/goWebActualCombat/chapter4/mongodb"
+	"04/model"
+	"04/mongodb"
+
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )

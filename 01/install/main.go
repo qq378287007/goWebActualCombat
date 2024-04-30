@@ -15,4 +15,4 @@ func main() {
 
 // go env
 // 默认安装在%GOPATH%\bin\目录下
-// go install
+// go install & %GOPATH%\bin\install.exe

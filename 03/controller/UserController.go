@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"gitee.com/shirdonl/goWebActualCombat/chapter3/model"
+	"03/model"
 )
 
 type UserController struct {

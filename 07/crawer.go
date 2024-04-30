@@ -1,12 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
@@ -42,7 +33,7 @@ func Get(url string) (result string, err error) {
 	return
 }
 
-//将所有的网页内容爬取下来
+// 将所有的网页内容爬取下来
 func SpiderPage(i int, page chan<- int) {
 	url := "https://github.com/search?q=go&type=Repositories&p=1" + strconv.Itoa((i-1)*50)
 	fmt.Printf("正在爬取第%d个网页\n", i)
@@ -53,7 +44,7 @@ func SpiderPage(i int, page chan<- int) {
 		return
 	}
 	//把内容写入到文件
-	filename := "page"+strconv.Itoa(i) + ".html"
+	filename := "page" + strconv.Itoa(i) + ".html"
 	f, err1 := os.Create(filename)
 	if err1 != nil {
 		fmt.Println("os.Create err = ", err1)

@@ -1,21 +1,13 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
+	"04/mongodb"
 	"context"
 	"fmt"
-	"gitee.com/shirdonl/goWebActualCombat/chapter4/mongodb"
+	"log"
+
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"log"
 )
 
 func main() {
@@ -35,7 +27,7 @@ func main() {
 			}},
 		}},
 	}}
-	if cursor, err = collection.Aggregate(context.TODO(), groupStage, ); err != nil {
+	if cursor, err = collection.Aggregate(context.TODO(), groupStage); err != nil {
 		log.Fatal(err)
 	}
 	defer func() {

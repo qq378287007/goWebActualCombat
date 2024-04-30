@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"gitee.com/shirdonl/goWebActualCombat/chapter3/controller"
+	"03/controller"
 )
 
 func main() {

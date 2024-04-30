@@ -1,35 +1,27 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
 	"fmt"
 	"log"
 	"net"
+
 	// 导入生成好的 protobuf 包
 	pb "gitee.com/shirdonl/goWebActualCombat/chapter5/protobuf"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 )
 
-//定义服务结构体
+// 定义服务结构体
 type ProgrammerServiceServer struct{}
 
 func (p *ProgrammerServiceServer) GetProgrammerInfo(ctx context.Context, req *pb.Request) (resp *pb.Response, err error) {
 	name := req.Name
 	if name == "shirdon" {
 		resp = &pb.Response{
-			Uid: 6,
+			Uid:      6,
 			Username: name,
-			Job: "CTO",
-			GoodAt: []string{"Go","Java","PHP","Python"},
+			Job:      "CTO",
+			GoodAt:   []string{"Go", "Java", "PHP", "Python"},
 		}
 
 	}

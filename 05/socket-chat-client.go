@@ -1,12 +1,3 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
-
 package main
 
 import (
@@ -68,7 +59,7 @@ func Sender(conn *net.TCPConn) {
 				if err != nil {
 					return
 				}
-				_t.Reset(time.Second * 5) //收到消息就刷新_t定时器，如果time.Second*5时间到了，那么就会<-_t.C就不会阻塞，代码会往下走，return结束
+				_t.Reset(time.Second * 5)       //收到消息就刷新_t定时器，如果time.Second*5时间到了，那么就会<-_t.C就不会阻塞，代码会往下走，return结束
 				if string(buffer[0:1]) != "1" { //心跳包消息定义为字符串"1",不需要打印出来
 					fmt.Println(string(buffer[0:n]))
 				}

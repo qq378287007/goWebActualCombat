@@ -11,8 +11,7 @@ func TestMin(t *testing.T) {
 	fmt.Println(ret)
 }
 
-// go mod init testexample
-// go mod tidy
+// go mod init testexample & go mod tidy
 
 // go test
 // go test -v -run TestMin

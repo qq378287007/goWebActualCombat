@@ -9,7 +9,6 @@ func main() {
 	fmt.Println("I love go build!")
 }
 
-// go mod init main & go mod tidy
-// go build & main.exe
+// go build & build1.exe
 
 // go build main.go utils.go & main.exe

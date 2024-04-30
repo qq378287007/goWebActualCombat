@@ -6,8 +6,9 @@ import (
 	"log"
 	"time"
 
-	"gitee.com/shirdonl/goWebActualCombat/chapter4/model"
-	"gitee.com/shirdonl/goWebActualCombat/chapter4/mongodb"
+	"04/model"
+	"04/mongodb"
+
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )

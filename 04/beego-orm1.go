@@ -1,36 +1,29 @@
-//++++++++++++++++++++++++++++++++++++++++
-// 《Go Web编程实战派从入门到精通》源码
-//++++++++++++++++++++++++++++++++++++++++
-// Author:廖显东（ShirDon）
-// Blog:https://www.shirdon.com/
-// 仓库地址：https://gitee.com/shirdonl/goWebActualCombat
-// 仓库地址：https://github.com/shirdonl/goWebActualCombat
-//++++++++++++++++++++++++++++++++++++++++
+/*
+CREATE TABLE `beego_user` (
 
-//CREATE TABLE `beego_user` (
-// `id` bigint(20) NOT NULL AUTO_INCREMENT,
-// `name` varchar(20) DEFAULT '',
-// `phone` varchar(20) DEFAULT '',
-// PRIMARY KEY (`id`)
-//) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4
+	`id` bigint(20) NOT NULL AUTO_INCREMENT,
+	`name` varchar(20) DEFAULT '',
+	`phone` varchar(20) DEFAULT '',
+	PRIMARY KEY (`id`)
 
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4
+*/
 package main
 
 import (
-	"fmt"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 )
 
 func init() {
-	orm.RegisterDriver("mysql", orm.DRMySQL)  //数据库类型设计
+	orm.RegisterDriver("mysql", orm.DRMySQL) //数据库类型设计
 	orm.RegisterDataBase("default", "mysql", "root:123456@tcp(127.0.0.1:3306)/chapter4?charset=utf8")
 	// 需要在init中注册定义的model
 	orm.RegisterModel(new(BeegoUser))
 }
 
 type BeegoUser struct {
-	Id   int //默认主健为id
+	Id    int //默认主健为id
 	Name  string
 	Phone string
 }
@@ -47,8 +40,6 @@ func main() {
 
 	//var w io.Writer
 	//orm.DebugLog = orm.NewLog(w)
-
-
 
 	//查询+++++++
 	//user := BeegoUser{}
@@ -68,8 +59,6 @@ func main() {
 	//}
 	//查询+++++++
 
-
-
 	//删除++++++++++
 	//user := BeegoUser{}
 	//// 先对主键id赋值, 查询数据的条件就是where id=7
@@ -81,7 +70,6 @@ func main() {
 	//	fmt.Println("删除数据影响的行数:", num)
 	//}
 	//删除++++++++++
-
 
 	//更新++++++++++
 	//user := BeegoUser{}
@@ -126,7 +114,6 @@ func main() {
 	//println(created)
 	//println(id)
 	//println(err)
-
 
 	//
 	//db, err := orm.GetDB()

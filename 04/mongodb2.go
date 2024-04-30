@@ -1,7 +1,8 @@
 package main
 
 import (
-	"gitee.com/shirdonl/goWebActualCombat/chapter4/mongodb"
+	"04/mongodb"
+
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
