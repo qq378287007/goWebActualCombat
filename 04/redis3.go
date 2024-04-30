@@ -16,14 +16,13 @@ func main() {
 
 	c.Send("SET", "username1", "jim")
 	c.Send("SET", "username2", "jack")
-
 	c.Flush()
 
 	v, err := c.Receive()
-	fmt.Printf("v:%v,err:%v\n", v, err)
+	fmt.Printf("v:%v, err:%v\n", v, err)
 	v, err = c.Receive()
-	fmt.Printf("v:%v,err:%v\n", v, err)
+	fmt.Printf("v:%v, err:%v\n", v, err)
 
 	v, err = c.Receive() // 一直等待
-	fmt.Printf("v:%v,err:%v\n", v, err)
+	fmt.Printf("v:%v, err:%v\n", v, err)
 }

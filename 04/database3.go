@@ -20,14 +20,11 @@ var u User
 
 // 初始化数据库连接
 func init() {
-	//db, _ = sql.Open("mysql",
-	//	"root:123456@tcp(127.0.0.1:3306)/chapter4")
-
-	db, _ = sql.Open("mysql", "root:123456@tcp(127.0.0.1:3306)/chapter2")
+	db, _ = sql.Open("mysql", "user:password@tcp(127.0.0.1:3306)/hello")
 
 	rows, err := db.Query("select `id` from `content` where id > ?", 0)
 	if err != nil {
-		fmt.Printf("query failed, err:%v\n", err)
+		fmt.Printf("query failed, err: %v\n", err)
 	}
 	println(rows)
 }
@@ -200,8 +197,8 @@ func sqlInject(name string) {
 }
 
 func main() {
-	//queryRow()
-	queryMultiRow()
+	queryRow()
+	//queryMultiRow()
 	//insertRow()
 	//updateRow()
 	//deleteRow()

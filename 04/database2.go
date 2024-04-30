@@ -12,7 +12,7 @@ var db *sql.DB
 // 定义一个初始化数据库的函数
 func initDB() (err error) {
 	//连接数据库
-	db, err = sql.Open("mysql", "root:a123456@tcp(127.0.0.1:3306)/ch4")
+	db, err = sql.Open("mysql", "user:password@tcp(127.0.0.1:3306)/hello")
 	if err != nil {
 		return err
 	}
@@ -27,7 +27,7 @@ func initDB() (err error) {
 func main() {
 	err := initDB() // 调用输出化数据库的函数
 	if err != nil {
-		fmt.Printf("init db failed,err:%v\n", err)
+		fmt.Printf("init db failed, err:%v\n", err)
 		return
 	}
 }

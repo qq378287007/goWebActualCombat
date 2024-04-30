@@ -3,17 +3,16 @@ package main
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"fmt"
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/jinzhu/gorm"
 	"log"
 	"os"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
 )
 
 var (
 	db            *gorm.DB
-	sqlConnection = "root:a123456@tcp(127.0.0.1:3306)/chapter4?" +
-		"charset=utf8&parseTime=true"
+	sqlConnection = "root:a123456@tcp(127.0.0.1:3306)/chapter4?" + "charset=utf8&parseTime=true"
 )
 
 // 数据表结构体类
@@ -24,7 +23,7 @@ type GormUser struct {
 	Password string `json:"password"`
 }
 
-//初始化
+// 初始化
 func init() {
 	//打开数据库连接
 	var err error
@@ -66,7 +65,6 @@ func main() {
 	//var GormUser = new(GormUser)
 	//db.Where("phone = ?", "13888888888").Delete(&GormUser)
 
-
 	////开启事务
 	//tx := db.Begin()
 	//
@@ -84,14 +82,11 @@ func main() {
 	////事务提交
 	//tx.Commit()
 
-
 	db.LogMode(true)
 	db.SetLogger(log.New(os.Stdout, "\r\n", 0))
-
-
 }
 
-//md5加密
+// md5加密
 func md5Password(str string) string {
 	h := md5.New()
 	h.Write([]byte(str))

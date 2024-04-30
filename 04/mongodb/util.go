@@ -25,6 +25,7 @@ func initDb() {
 		log.Fatal(err)
 	}
 }
+
 func MgoCli() *mongo.Client {
 	if mgoCli == nil {
 		initDb()

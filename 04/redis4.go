@@ -20,9 +20,9 @@ func main() {
 	conn.Flush()
 
 	res1, err := conn.Receive()
-	fmt.Printf("Receive res1:%v \n", res1)
+	fmt.Printf("Receive res1: %v \n", res1)
 	res2, err := conn.Receive()
-	fmt.Printf("Receive res2:%v\n", res2)
+	fmt.Printf("Receive res2: %v\n", res2)
 	res3, err := conn.Receive()
-	fmt.Printf("Receive res3:%s\n", res3)
+	fmt.Printf("Receive res3: %s\n", res3)
 }
